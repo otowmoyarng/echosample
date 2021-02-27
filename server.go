@@ -1,4 +1,4 @@
-package main
+package	main
 
 import (
 	"net/http"
@@ -27,11 +27,7 @@ func pathget(c echo.Context) error {
 }
 
 func queryget(c echo.Context) error {
-
-	result := new(Project)
-	result.Team = c.QueryParam("team")
-	result.Menber = c.QueryParam("menber")
-	return c.JSON(http.StatusOK, result)
+	return c.JSON(http.StatusOK, Project{Team: c.QueryParam("team"), Menber: c.QueryParam("menber")})
 }
 
 func bodyget(c echo.Context) error {
@@ -44,4 +40,8 @@ func bodyget(c echo.Context) error {
 	result.Team += "hoge"
 	result.Menber += "yamada"
 	return c.JSON(http.StatusOK, result)
+}
+
+func IsKisu(num int) bool {
+	return num % 2 == 1
 }
