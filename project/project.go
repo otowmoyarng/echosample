@@ -27,6 +27,6 @@ func Bodyget(c echo.Context) error {
 	}
 
 	result.Team += "hoge"
-	result.Menber += "yamada"
+	result.Menber += "fuga"
 	return c.JSON(http.StatusOK, result)
 }
