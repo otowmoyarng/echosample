@@ -36,7 +36,7 @@
               "path": "/"
             },
             "id": "fdab2daa-f361-43a5-8393-52cd25830aaa",
-            "name": "index1",
+            "name": "index",
             "headers": []
           }
         },
@@ -65,10 +65,10 @@
                 "version": "V11"
               },
               "host": "127.0.0.1:1234",
-              "path": "/project/hoge"
+              "path": "/user/hoge"
             },
             "id": "ff889c6a-e42a-4f98-a142-27536995b6e8",
-            "name": "project-pathget",
+            "name": "project-GetUser",
             "headers": []
           }
         },
@@ -99,10 +99,10 @@
                 "version": "V11"
               },
               "host": "127.0.0.1:1234",
-              "path": "/project"
+              "path": "/user"
             },
             "id": "49a2e6d8-db00-4f1b-8e46-16d347ecc710",
-            "name": "project-post",
+            "name": "project-CreateUsers",
             "headers": [
               {
                 "enabled": true,
@@ -148,10 +148,10 @@
                 "version": "V11"
               },
               "host": "127.0.0.1:1234",
-              "path": "/project"
+              "path": "/user"
             },
             "id": "6326856e-c9d6-4e7b-8921-92b1ec261141",
-            "name": "project-queryget",
+            "name": "project-GetUsers",
             "headers": []
           }
         }

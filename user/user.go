@@ -1,4 +1,4 @@
-package project
+package user
 
 import (
 	"net/http"
@@ -6,22 +6,22 @@ import (
 	"github.com/labstack/echo"
 )
 
-type Project struct {
+type User struct {
 	Team   string `json:"team"`
 	Menber string `json:"menber"`
 }
 
-func Pathget(c echo.Context) error {
+func GetUser(c echo.Context) error {
 	return c.String(http.StatusOK, c.Param("id"))
 }
 
-func Queryget(c echo.Context) error {
-	return c.JSON(http.StatusOK, Project{Team: c.QueryParam("team"), Menber: c.QueryParam("menber")})
+func GetUsers(c echo.Context) error {
+	return c.JSON(http.StatusOK, User{Team: c.QueryParam("team"), Menber: c.QueryParam("menber")})
 }
 
-func Bodyget(c echo.Context) error {
+func CreateUsers(c echo.Context) error {
 
-	result := new(Project)
+	result := new(User)
 	if err := c.Bind(result); err != nil {
 		return err
 	}

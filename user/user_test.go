@@ -1,4 +1,4 @@
-package project
+package user
 
 import (
 	"fmt"
@@ -12,10 +12,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPathget(t *testing.T) {
+func TestGetUser(t *testing.T) {
 
 	e := echo.New()
-	req := httptest.NewRequest(http.MethodGet, "/project/:id", nil)
+	req := httptest.NewRequest(http.MethodGet, "/user/:id", nil)
 	rec := httptest.NewRecorder()
 	c := e.NewContext(req, rec)
 
@@ -23,26 +23,26 @@ func TestPathget(t *testing.T) {
 	c.SetParamNames("id")
 	c.SetParamValues(testvalue)
 
-	Pathget(c)
+	GetUser(c)
 	fmt.Printf("HTTPStatus:%d\n", rec.Code)
 	fmt.Printf("result=%s\n", rec.Body.String())
 	assert.Equal(t, http.StatusOK, rec.Code)
 	assert.Equal(t, testvalue, rec.Body.String())
 }
 
-func TestQueryget(t *testing.T) {
+func TestGetUsers(t *testing.T) {
 
 	queryparams := make(url.Values)
 	queryparams.Set("team", "hoge")
 	queryparams.Set("menber", "fuga")
 
 	e := echo.New()
-	req := httptest.NewRequest(http.MethodGet, "/project/?"+queryparams.Encode(), nil)
+	req := httptest.NewRequest(http.MethodGet, "/user/?"+queryparams.Encode(), nil)
 	rec := httptest.NewRecorder()
 	c := e.NewContext(req, rec)
 
 	var testJSON string = `{"team":"hoge","menber":"fuga"}`
-	Queryget(c)
+	GetUsers(c)
 	fmt.Printf("HTTPStatus:%d\n", rec.Code)
 	fmt.Printf("json=%s\n", testJSON)
 	fmt.Printf("result=%s\n", rec.Body.String())
@@ -50,17 +50,17 @@ func TestQueryget(t *testing.T) {
 	assert.Equal(t, testJSON+"\n", rec.Body.String())
 }
 
-func TestBodyget(t *testing.T) {
+func TestCreateUsers(t *testing.T) {
 
 	var testParamJSON string = `{"team":"hoge","menber":"fuga"}`
 
 	e := echo.New()
-	req := httptest.NewRequest(http.MethodPost, "/project/", strings.NewReader(testParamJSON))
+	req := httptest.NewRequest(http.MethodPost, "/user/", strings.NewReader(testParamJSON))
 	req.Header.Set(echo.HeaderContentType, echo.MIMEApplicationJSON)
 	rec := httptest.NewRecorder()
 	c := e.NewContext(req, rec)
 
-	Bodyget(c)
+	CreateUsers(c)
 
 	var testExpectJSON string = `{"team":"hogehoge","menber":"fugafuga"}`
 	fmt.Printf("HTTPStatus:%d\n", rec.Code)
