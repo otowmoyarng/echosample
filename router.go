@@ -1,8 +1,9 @@
 package main
 
 import (
-	"echosample/user"
 	"net/http"
+
+	"echosample/api"
 
 	"github.com/labstack/echo"
 )
@@ -14,9 +15,11 @@ func NewRouter() *echo.Echo {
 		return c.String(http.StatusOK, "Hello echo")
 	})
 
-	apipro := e.Group("/user")
-	apipro.GET("/:id", user.GetUser)
-	apipro.GET("", user.GetUsers)
-	apipro.POST("", user.CreateUsers)
+	api_users := e.Group("/user")
+	api_users.GET("/:name", api.GetUser)
+	api_users.GET("", api.GetUsers)
+	api_users.POST("", api.CreateUsers)
+	api_users.PUT("/:name", api.UpdateUser)
+	api_users.DELETE("/:name", api.DeleteUser)
 	return e
 }

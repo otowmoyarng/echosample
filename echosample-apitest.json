@@ -4,10 +4,227 @@
     {
       "entity": {
         "type": "Project",
-        "id": "7ca21858-1e2f-41bd-9b77-0b47ab42677c",
+        "id": "f619b20d-e934-436e-8e9c-c85d6cb2269e",
         "name": "echosample"
       },
       "children": [
+        {
+          "entity": {
+            "type": "Scenario",
+            "id": "5cca3a0b-9741-4f62-85e3-ff780416b198",
+            "name": "users"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:1234",
+                  "path": "/user/taro"
+                },
+                "id": "8d24751b-ee1e-46ef-a013-698ad84de757",
+                "name": "user-GetUser_found",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:1234",
+                  "path": "/user/maki"
+                },
+                "id": "6ec028f5-3af9-4881-9ba8-7b64a973affe",
+                "name": "GetUser_notfound",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:1234",
+                  "path": "/user"
+                },
+                "id": "de3b52b7-57f2-4890-b8e0-782bf1da7397",
+                "name": "user-GetUsers",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+                  "name": "POST"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"name\": \"koji\",\n  \"birthday\": \"1990/12/31\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:1234",
+                  "path": "/user"
+                },
+                "id": "7aacd842-c88e-4cc7-92a5-6ff84634dd0e",
+                "name": "user-CreateUser",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.4",
+                  "name": "PUT"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"name\": \"koji\",\n  \"birthday\": \"1995/10/13\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:1234",
+                  "path": "/user/koji"
+                },
+                "id": "d20d37e6-4c09-472c-bd69-425bcf8c4a07",
+                "name": "user-UpdateUser",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
+                  "name": "DELETE"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "127.0.0.1:1234",
+                  "path": "/user/koji"
+                },
+                "id": "43e830af-9703-49c0-afd0-61517e94e74e",
+                "name": "user-DeleteUser",
+                "headers": []
+              }
+            }
+          ]
+        },
         {
           "entity": {
             "type": "Request",
@@ -35,123 +252,8 @@
               "host": "127.0.0.1:1234",
               "path": "/"
             },
-            "id": "fdab2daa-f361-43a5-8393-52cd25830aaa",
+            "id": "909f92b7-672e-48d6-91c2-510d3fa447f6",
             "name": "index",
-            "headers": []
-          }
-        },
-        {
-          "entity": {
-            "type": "Request",
-            "method": {
-              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
-              "name": "GET"
-            },
-            "body": {
-              "formBody": {
-                "overrideContentType": true,
-                "encoding": "application/x-www-form-urlencoded",
-                "items": []
-              },
-              "bodyType": "Text"
-            },
-            "uri": {
-              "query": {
-                "delimiter": "&",
-                "items": []
-              },
-              "scheme": {
-                "name": "http",
-                "version": "V11"
-              },
-              "host": "127.0.0.1:1234",
-              "path": "/user/hoge"
-            },
-            "id": "ff889c6a-e42a-4f98-a142-27536995b6e8",
-            "name": "project-GetUser",
-            "headers": []
-          }
-        },
-        {
-          "entity": {
-            "type": "Request",
-            "method": {
-              "requestBody": true,
-              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
-              "name": "POST"
-            },
-            "body": {
-              "formBody": {
-                "overrideContentType": true,
-                "encoding": "application/x-www-form-urlencoded",
-                "items": []
-              },
-              "bodyType": "Text",
-              "textBody": "{\n  \"team\": \"hoge\",\n  \"menber\": \"fuga\"\n}"
-            },
-            "uri": {
-              "query": {
-                "delimiter": "&",
-                "items": []
-              },
-              "scheme": {
-                "name": "http",
-                "version": "V11"
-              },
-              "host": "127.0.0.1:1234",
-              "path": "/user"
-            },
-            "id": "49a2e6d8-db00-4f1b-8e46-16d347ecc710",
-            "name": "project-CreateUsers",
-            "headers": [
-              {
-                "enabled": true,
-                "name": "Content-Type",
-                "value": "application/json"
-              }
-            ]
-          }
-        },
-        {
-          "entity": {
-            "type": "Request",
-            "method": {
-              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
-              "name": "GET"
-            },
-            "body": {
-              "formBody": {
-                "overrideContentType": true,
-                "encoding": "application/x-www-form-urlencoded",
-                "items": []
-              },
-              "bodyType": "Text"
-            },
-            "uri": {
-              "query": {
-                "delimiter": "&",
-                "items": [
-                  {
-                    "enabled": true,
-                    "name": "team",
-                    "value": "hoge"
-                  },
-                  {
-                    "enabled": true,
-                    "name": "menber",
-                    "value": "fuga"
-                  }
-                ]
-              },
-              "scheme": {
-                "name": "http",
-                "version": "V11"
-              },
-              "host": "127.0.0.1:1234",
-              "path": "/user"
-            },
-            "id": "6326856e-c9d6-4e7b-8921-92b1ec261141",
-            "name": "project-GetUsers",
             "headers": []
           }
         }
