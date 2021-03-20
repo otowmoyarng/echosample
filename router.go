@@ -11,13 +11,15 @@ import (
 const api_version string = "v1.1"
 
 func NewRouter() *echo.Echo {
+
+	entrypoint := "/" + api_version
 	e := echo.New()
 
-	e.GET("/" + api_version, func(c echo.Context) error {
+	e.GET(entrypoint, func(c echo.Context) error {
 		return c.String(http.StatusOK, "echosample Ver.1.1")
 	})
 
-	api_users := e.Group("/user")
+	api_users := e.Group(entrypoint + "/user")
 	api_users.GET("/:name", api.GetUser)
 	api_users.GET("", api.GetUsers)
 	api_users.POST("", api.CreateUsers)

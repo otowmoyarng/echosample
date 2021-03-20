@@ -40,10 +40,10 @@
                     "version": "V11"
                   },
                   "host": "127.0.0.1:1234",
-                  "path": "/user/taro"
+                  "path": "/v1.1/user/taro"
                 },
                 "id": "8d24751b-ee1e-46ef-a013-698ad84de757",
-                "name": "user-GetUser_found",
+                "name": "GetUser_found",
                 "headers": []
               }
             },
@@ -72,7 +72,7 @@
                     "version": "V11"
                   },
                   "host": "127.0.0.1:1234",
-                  "path": "/user/maki"
+                  "path": "/v1.1/user/maki"
                 },
                 "id": "6ec028f5-3af9-4881-9ba8-7b64a973affe",
                 "name": "GetUser_notfound",
@@ -104,10 +104,10 @@
                     "version": "V11"
                   },
                   "host": "127.0.0.1:1234",
-                  "path": "/user"
+                  "path": "/v1.1/user"
                 },
                 "id": "de3b52b7-57f2-4890-b8e0-782bf1da7397",
-                "name": "user-GetUsers",
+                "name": "GetUsers",
                 "headers": []
               }
             },
@@ -138,10 +138,10 @@
                     "version": "V11"
                   },
                   "host": "127.0.0.1:1234",
-                  "path": "/user"
+                  "path": "/v1.1/user"
                 },
                 "id": "7aacd842-c88e-4cc7-92a5-6ff84634dd0e",
-                "name": "user-CreateUser",
+                "name": "CreateUser",
                 "headers": [
                   {
                     "enabled": true,
@@ -178,10 +178,10 @@
                     "version": "V11"
                   },
                   "host": "127.0.0.1:1234",
-                  "path": "/user/koji"
+                  "path": "/v1.1/user/koji"
                 },
                 "id": "d20d37e6-4c09-472c-bd69-425bcf8c4a07",
-                "name": "user-UpdateUser",
+                "name": "UpdateUser",
                 "headers": [
                   {
                     "enabled": true,
@@ -216,10 +216,10 @@
                     "version": "V11"
                   },
                   "host": "127.0.0.1:1234",
-                  "path": "/user/koji"
+                  "path": "/v1.1/user/koji"
                 },
                 "id": "43e830af-9703-49c0-afd0-61517e94e74e",
-                "name": "user-DeleteUser",
+                "name": "DeleteUser",
                 "headers": []
               }
             }
@@ -250,10 +250,10 @@
                 "version": "V11"
               },
               "host": "127.0.0.1:1234",
-              "path": "/"
+              "path": "/v1.1"
             },
             "id": "909f92b7-672e-48d6-91c2-510d3fa447f6",
-            "name": "index",
+            "name": "Root",
             "headers": []
           }
         }
