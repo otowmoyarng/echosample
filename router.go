@@ -8,11 +8,13 @@ import (
 	"github.com/labstack/echo"
 )
 
+const api_version string = "v1.1"
+
 func NewRouter() *echo.Echo {
 	e := echo.New()
 
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello echo")
+	e.GET("/" + api_version, func(c echo.Context) error {
+		return c.String(http.StatusOK, "echosample Ver.1.1")
 	})
 
 	api_users := e.Group("/user")
