@@ -3,17 +3,18 @@ package main
 import (
 	"echosample/api"
 	"echosample/view"
+	"fmt"
 	"html/template"
 	"net/http"
 
 	"github.com/labstack/echo"
 )
 
-const api_version string = "v1.1"
+const API_VERSION string = "1.1"
 
 func NewRouter() *echo.Echo {
 
-	entrypoint := "/" + api_version
+	entrypoint := fmt.Sprintf("/v%s", API_VERSION)
 	e := echo.New()
 	templaterender := &TemplateRenderer{
 		templetes: template.Must(template.ParseGlob("../templete/*.html")),
@@ -21,7 +22,8 @@ func NewRouter() *echo.Echo {
 	e.Renderer = templaterender
 
 	e.GET(entrypoint, func(c echo.Context) error {
-		return c.String(http.StatusOK, "echosample Ver.1.1")
+		data := fmt.Sprintf("echosample Ver.%s", API_VERSION)
+		return c.String(http.StatusOK, data)
 	})
 
 	// API群
