@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div>
+            <h4>userlist</h4>
+            <table border="1" rules="groups">
+                <thead>
+                    <th>名前</th>
+                    <th>生年月日</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>hoge</td>
+                        <td>2000/01/02</td>
+                    </tr>
+                    {{range .}}
+                    <tr>
+                        <td>{{.Name}}</td>
+                        <td>{{.Birthday}}</td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
