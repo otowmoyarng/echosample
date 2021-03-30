@@ -8,6 +8,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 )
 
 const API_VERSION string = "1.1"
@@ -15,12 +16,17 @@ const API_VERSION string = "1.1"
 func NewRouter() *echo.Echo {
 
 	entrypoint := fmt.Sprintf("/v%s", API_VERSION)
+
 	e := echo.New()
 	templaterender := &TemplateRenderer{
 		templetes: template.Must(template.ParseGlob("../templete/*.html")),
 	}
 	e.Renderer = templaterender
 
+	// ロギング
+	e.Use(middleware.Logger())
+
+	// ルート
 	e.GET(entrypoint, func(c echo.Context) error {
 		data := fmt.Sprintf("echosample Ver.%s", API_VERSION)
 		return c.String(http.StatusOK, data)
