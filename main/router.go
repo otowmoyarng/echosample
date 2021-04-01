@@ -7,6 +7,7 @@ import (
 	"html/template"
 	"net/http"
 	"os"
+	"time"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
@@ -24,14 +25,16 @@ func NewRouter() *echo.Echo {
 	e.Renderer = templaterender
 
 	// ロギング
-	log, err := os.OpenFile("../log/echosample.log", os.O_RDWR|os.O_CREATE, 0664)
+	today := time.Now()
+	logfilename := "../log/echosample-" + today.Format("20060102") + ".log"
+
+	log, err := os.OpenFile(logfilename, os.O_RDWR|os.O_CREATE, 0664)
 	if err != nil {
 		return e
 	}
-	// e.Use(middleware.Logger())
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
 		Output: log,
-	}))
+	}), middleware.Logger())
 
 	// ルート
 	e.GET(entrypoint, func(c echo.Context) error {
